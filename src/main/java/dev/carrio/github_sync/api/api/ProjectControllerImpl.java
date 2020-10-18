@@ -1,8 +1,8 @@
-package dev.carrio.github_sync.api;
+package dev.carrio.github_sync.api.api;
 
-import dev.carrio.github_sync.dto.ActionDto;
-import dev.carrio.github_sync.dto.ProjectDto;
-import dev.carrio.github_sync.service.ProjectService;
+import dev.carrio.github_sync.api.dto.ActionDto;
+import dev.carrio.github_sync.api.dto.ProjectDto;
+import dev.carrio.github_sync.api.service.IProjectService;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -12,26 +12,26 @@ import java.util.UUID;
 
 public class ProjectControllerImpl implements IProjectController {
     @Inject
-    private ProjectService projectService;
+    private IProjectService projectServiceImpl;
 
     @Override
     public List<ProjectDto> getProjects() {
-        return this.projectService.getProjects();
+        return this.projectServiceImpl.getProjects();
     }
 
     @Override
     public Optional<ProjectDto> getProject(@PathParam("id") UUID id) {
-        return this.projectService.getProject(id);
+        return this.projectServiceImpl.getProject(id);
     }
 
     @Override
     public UUID createProject(ProjectDto project) {
-        return this.projectService.createProject(project);
+        return this.projectServiceImpl.createProject(project);
     }
 
     @Override
     public UUID updateProject(UUID id, ProjectDto project) {
-        Optional<UUID> updated = this.projectService.updateProject(id, project);
+        Optional<UUID> updated = this.projectServiceImpl.updateProject(id, project);
         if (!updated.isPresent()) {
             throw new NotFoundException(String.format("No project with ID %s found", id.toString()));
         }
@@ -43,7 +43,7 @@ public class ProjectControllerImpl implements IProjectController {
     public ActionDto deleteProject(@PathParam("id") String id) {
         ActionDto currentAction = new ActionDto();
         try {
-            Optional<UUID> deleted = this.projectService.deleteProject(id);
+            Optional<UUID> deleted = this.projectServiceImpl.deleteProject(id);
 
             currentAction.success = deleted.isPresent();
             if (!currentAction.success) {

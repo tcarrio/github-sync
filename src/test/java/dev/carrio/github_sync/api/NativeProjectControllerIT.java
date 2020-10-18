@@ -1,4 +1,4 @@
-package dev.carrio.github_sync;
+package dev.carrio.github_sync.api;
 
 import io.quarkus.test.junit.NativeImageTest;
 

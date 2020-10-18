@@ -119,6 +119,22 @@
       </activation>
       <build>
         <plugins>
+<!--          <plugin>-->
+<!--            <groupId>io.quarkus</groupId>-->
+<!--            <artifactId>quarkus-maven-plugin</artifactId>-->
+<!--            <version>${quarkus.platform.version}</version>-->
+<!--            <executions>-->
+<!--              <execution>-->
+<!--                <goals>-->
+<!--                  <goal>native-image</goal>-->
+<!--                </goals>-->
+<!--                <configuration>-->
+<!--                  <enableHttpUrlHandler>true</enableHttpUrlHandler>-->
+<!--                  <additionalBuildArgs>-J-Xmx2G</additionalBuildArgs>-->
+<!--                </configuration>-->
+<!--              </execution>-->
+<!--            </executions>-->
+<!--          </plugin>-->
           <plugin>
             <artifactId>maven-failsafe-plugin</artifactId>
             <version>${surefire-plugin.version}</version>

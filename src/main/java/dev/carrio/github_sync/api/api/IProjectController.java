@@ -1,7 +1,7 @@
-package dev.carrio.github_sync.api;
+package dev.carrio.github_sync.api.api;
 
-import dev.carrio.github_sync.dto.ActionDto;
-import dev.carrio.github_sync.dto.ProjectDto;
+import dev.carrio.github_sync.api.dto.ProjectDto;
+import dev.carrio.github_sync.api.dto.ActionDto;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

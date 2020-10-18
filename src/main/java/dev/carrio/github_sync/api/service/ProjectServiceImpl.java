@@ -1,7 +1,7 @@
-package dev.carrio.github_sync.service;
+package dev.carrio.github_sync.api.service;
 
-import dev.carrio.github_sync.dto.ProjectDto;
-import dev.carrio.github_sync.entity.Project;
+import dev.carrio.github_sync.api.dto.ProjectDto;
+import dev.carrio.github_sync.api.entity.Project;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -17,7 +17,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @ApplicationScoped
-public class ProjectService {
+public class ProjectServiceImpl implements IProjectService {
     @Inject
     public EntityManager em;
 

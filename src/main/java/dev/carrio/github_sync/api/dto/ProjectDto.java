@@ -1,4 +1,4 @@
-package dev.carrio.github_sync.dto;
+package dev.carrio.github_sync.api.dto;
 
 import java.net.URL;
 

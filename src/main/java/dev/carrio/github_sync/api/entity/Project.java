@@ -1,4 +1,4 @@
-package dev.carrio.github_sync.entity;
+package dev.carrio.github_sync.api.entity;
 
 import javax.persistence.Entity;
 import java.net.URL;
