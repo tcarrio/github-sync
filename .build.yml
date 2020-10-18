@@ -1,4 +1,6 @@
 image: archlinux
+packages:
+  - jdk11-openjdk
 sources:
   - https://git.sr.ht/~tcarrio/github-sync
   - https://git.sr.ht/~tcarrio/git-mirror
@@ -8,4 +10,7 @@ environment:
 secrets:
   - 4e983fc2-9d24-43eb-9986-1c18feb2e7b8
 tasks:
+  - use-java-11: archlinux-java set java-11-openjdk
+  - await-docker: while ! docker ps; do sleep 1; done
+  - test-and-build: ./mvnw package -Pnative -Dquarkus.native.container-build=true
   - mirror-all: git-mirror/git-mirror.sh $PROJECT_DIR

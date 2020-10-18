@@ -10,12 +10,12 @@ import static org.hamcrest.CoreMatchers.is;
 public class ProjectControllerTest {
 
     @Test
-    public void testHelloEndpoint() {
+    public void testProjectsEndpoint() {
         given()
-          .when().get("/resteasy/hello")
+          .when().get("/projects")
           .then()
              .statusCode(200)
-             .body(is("hello"));
+             .body(is("[]"));
     }
 
 }
